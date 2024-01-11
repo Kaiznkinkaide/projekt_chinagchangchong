@@ -203,7 +203,7 @@ const counter = () =>{
 }
 
 
-// // Soll 
+// // Soll
 // const radioButtons = document.querySelectorAll('input[type="radio"]');
 
 // radioButtons.forEach(button => {

@@ -5,9 +5,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
+    <div class="radio">
+        <h3>How many rounds?</h3>
+        <input type="radio" name="radio" id="radioFive">
+        <label for="five">5</label>
+        <input type="radio" name="radio" id="radioTen">
+        <label for="ten">10</label>
+        <input type="radio" name="radio" id="radioFifthteen">
+        <label for="fifthteen">15</label>
+        <input type="radio" name="radio" id="radioTwenty">
+        <label for="twenty">20</label>
+    </div>
+    <div class="outputFrame">
+        <div>
+            <p>YOU</p>
+        </div>
+        <div id="score">
+            <p id="youScore">0</p>
+            <p>:</p>
+            <p id="compScore">0</p>
+        </div>
+        <div>
+            <p>COMP</p>
+        </div>
+    </div>
+    <div class="inputFrame">
+        <h1>Let's play</h1>
+        <div class="inputField">
+            <div id="rock">✊🏻</div>
+            <div id="paper">✋🏻</div>
+            <div id="scissors">✌🏻</div>
+        </div>
+        <h2>MAKE YOUR MOVE.</h2>
+        <button id="restart">restart</button>
+    </div>
+
     <script src="./assets/js/main.js"></script>
 </body>
 

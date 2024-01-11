@@ -1,0 +1,23 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.outputFrame {
+    padding: 3vh;
+    display: flex;
+    gap: 1.5rem;
+}
+
+#score {
+    padding: 3vh;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.inputField {
+    padding: 3vh;
+    display: flex;
+    gap: 1.5rem;
+}

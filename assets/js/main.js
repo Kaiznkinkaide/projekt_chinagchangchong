@@ -8,6 +8,7 @@ let radio20 = document.getElementById('radioTwenty')
 // score
 let youScore = document.getElementById('youScore')
 let compScore = document.getElementById('compScore')
+let output = document.querySelector('#output')
 // input
 let rock = document.getElementById('rock')
 let paper = document.getElementById('paper')
@@ -19,15 +20,55 @@ let restart = document.getElementById('restart')
 let i = 0
 
 
-const compTurn = () =>{
-    let randomChoice = Math.round(Math.random() *2)
-    console.log(randomChoice);
-    let randomPic = Math.round(Math.random() *2)
-    console.log(randomPic);
-    i++
-    console.log(i);
+const compTurn = (choice) => {
+    let randomChoice = Math.round(Math.random() * 2);
+    let randomPic = Math.round(Math.random() * 2);
+    i++;
+
+    if (randomChoice == 0) {
+        randomChoice = 'Rock';
+    } else if (randomChoice == 1) {
+        randomChoice = 'Paper';
+    } else {
+        randomChoice = 'Scissors';
+    }
+
+    if (choice == randomChoice) {
+        output.textContent = 'Draw';
+    } else {
+        if (choice == rock) {
+            if (randomChoice == 'Scissors') {
+                output.textContent = 'Player win';
+            } else if (randomChoice == 'Paper') {
+                output.textContent = 'Com win';
+            }
+        } if (choice == paper) {
+            if (randomChoice == 'Rock') {
+                output.textContent = 'Player win';
+            } else if (randomChoice == 'Scissors') {
+                output.textContent = 'Com win';
+            }
+        } if (choice == scissors) {
+            if (randomChoice == 'Paper') {
+                output.textContent = 'Player win';
+            } else if (randomChoice == 'Rock') {
+                output.textContent = 'Com Win';
+            }
+        }
+    }
 }
 compTurn()
+
+rock.addEventListener('click', function (){
+    compTurn(rock)
+})
+paper.addEventListener('click', function (){
+    compTurn(paper)
+})
+scissors.addEventListener('click', function (){
+    compTurn(scissors)
+})
+
 
 restart.addEventListener('click', () =>{
     compTurn()
@@ -49,6 +90,3 @@ const radioChoice = () => {
 radio.addEventListener('change', () =>{
     radioChoice()
 })
-
-
-

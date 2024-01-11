@@ -1,18 +1,19 @@
 
 // radio
-let radio = document.getElementById('radio')
-let radio5 = document.getElementById('radioFive')
-let radio10 = document.getElementById('radioTen')
-let radio15 = document.getElementById('radioFifthteen')
-let radio20 = document.getElementById('radioTwenty')
+const radio = document.getElementById('radio')
+const radio5 = document.getElementById('radioFive')
+const radio10 = document.getElementById('radioTen')
+const radio15 = document.getElementById('radioFifthteen')
+const radio20 = document.getElementById('radioTwenty')
+
 // score
 let youScore = document.getElementById('youScore')
 let compScore = document.getElementById('compScore')
 let output = document.querySelector('#output')
 // input
-let rock = document.getElementById('rock')
-let paper = document.getElementById('paper')
-let scissors = document.getElementById('scissors')
+let Rock = document.getElementById('rock')
+let Paper = document.getElementById('paper')
+let Scissors = document.getElementById('scissors')
 // restart
 let restart = document.getElementById('restart')
 
@@ -20,16 +21,14 @@ let restart = document.getElementById('restart')
 let i = 0
 let iPlayer = 0
 let iCom = 0
-let number = 5
+let number;
 
 
 
 
 const compTurn = (choice) => {
     let randomChoice = Math.round(Math.random() * 2);
-    let randomPic = Math.round(Math.random() * 2);
-    console.log(i);
-
+    
     if (randomChoice == 0) {
         randomChoice = 'Rock';
     } else if (randomChoice == 1) {
@@ -37,16 +36,18 @@ const compTurn = (choice) => {
     } else {
         randomChoice = 'Scissors';
     }
+    
 
-    if (choice == randomChoice) {
+    if (choice.id == randomChoice.toLowerCase()) {
+        counter()
+        radioForLoop()
         output.textContent = 'Draw';
     } else {
         counter()
-
-        if (choice == rock) {
+        radioForLoop()
+        if (choice == Rock) {
             if (randomChoice == 'Scissors') {
                 output.textContent = `rock beats ${randomChoice}`;
-                console.log(choice.id);
                 iPlayer ++
                 youScore.textContent = iPlayer
                 
@@ -55,7 +56,7 @@ const compTurn = (choice) => {
                 iCom ++
                 compScore.textContent = iCom
             }
-        } if (choice == paper) {
+        } if (choice == Paper) {
             if (randomChoice == 'Rock') {
                 output.textContent = `paper beats ${randomChoice}`;
                 iPlayer ++
@@ -66,7 +67,7 @@ const compTurn = (choice) => {
                 iCom ++
                 compScore.textContent = iCom
             }
-        } if (choice == scissors) {
+        } if (choice == Scissors) {
             if (randomChoice == 'Paper') {
                 output.textContent = `scissors beats ${randomChoice}`;
                 iPlayer ++
@@ -77,18 +78,18 @@ const compTurn = (choice) => {
                 compScore.textContent = iCom
             }
         }
-    } radioForLoop()
+    } 
 }
 
 
 rock.addEventListener('click', function (){
-    compTurn(rock)
+    compTurn(Rock)
 })
 paper.addEventListener('click', function (){
-    compTurn(paper)
+    compTurn(Paper)
 })
 scissors.addEventListener('click', function (){
-    compTurn(scissors)
+    compTurn(Scissors)
 })
 
 const restartFunction = () =>{
@@ -98,53 +99,62 @@ const restartFunction = () =>{
     compScore.textContent = iCom
     i = 0
     output.textContent = "Let's play"
-    radio.innerHTML = `
-    <input type="radio" name="radio" id="radioFive">
-    <label for="five">5</label>
-    <input type="radio" name="radio" id="radioTen">
-    <label for="ten">10</label>
-    <input type="radio" name="radio" id="radioFifthteen">
-    <label for="fifthteen">15</label>
-    <input type="radio" name="radio" id="radioTwenty">
-    <label for="twenty">20</label>`
+    // outputRounds.style.display = 'initial'
+    window.location.reload()
 }
 
-
+document.querySelector('input[type=radio]').addEventListener('change', function() {
+    console.log('Radio button state : ', this.checked);
+});
 
 restart.addEventListener('click', () =>{
     restartFunction()
 })
 
+
+// Wählt aus wenn das radio ausgewählt, mit wieviel runden gestartet wird
 const radioForLoop = () => {
     if (radio5.checked) {
         number = 5
+        radio.innerHTML = `<div>${i} / ${number} </div>`
         radioChoice(5)
     } else if (radio10.checked){
         number = 10
+        console.log(number);
+        radio.innerHTML = `<div>${i} / ${number} </div>`
         radioChoice(10)
     }else if (radio15.checked){
         number = 15
+        radio.innerHTML = `<div>${i} / ${number} </div>`
         radioChoice(15)
     }else if (radio20.checked){
         number = 20
+        radio.innerHTML = `<div>${i} / ${number} </div>`
         radioChoice(20)
     }
 }
 
+let result = document.querySelector('#result')
+// Zählt den Score und vergleicht wer am Ende gewinnt
 const radioChoice = (x) => {
-        output.textContent = "Let's play"
+    console.log('test');
+        // output.textContent = "Let's play"
         if(i == x && iPlayer > iCom){
-            output.textContent  = "Player wins"
-            setTimeout(2000, restartFunction())
+            console.log('testplayerwin');
+            result.textContent = "Player wins"
+            setTimeout(500, output.textContent = "test")
+            setTimeout(2000, restartFunction)
 
         } else if (i == x && iCom > iPlayer){
-            output.textContent  = "Com wins"
-            setTimeout(2000, restartFunction())
+            console.log('comwins');
+            setTimeout(500, output.textContent = "test")
+            setTimeout(2000, restartFunction)
         }
         else if(i == x && iCom == iPlayer){ 
-            
-            output.textContent = "it's a draw"
-            setTimeout(2000, restartFunction())
+            console.log('draw');
+            result.textContent = "it's a draw"
+            setTimeout(500, output.textContent = "test")
+            setTimeout(2000, restartFunction)
         }
     // }else if(radio10.checked){
     //     output.textContent = "Let's play"
@@ -165,7 +175,6 @@ const radioChoice = (x) => {
     //     output.textContent = "Let's play"
     //     number = 15
     //     if(i == 15 && iPlayer > iCom){
-    //         console.log("OHHHHHHH");
     //         restartFunction()
     //         output.textContent  = "Player wins"
 
@@ -193,11 +202,36 @@ const radioChoice = (x) => {
         
 }
 
+// einfach Zählfunktion
 const counter = () =>{
     i++
-    radio.innerHTML = `<div>${i} / ${number} </div>`
 }
 
-radio.addEventListener('change', () =>{
-    radioChoice()
-})
+
+// // Soll 
+// const radioButtons = document.querySelectorAll('input[type="radio"]');
+
+// radioButtons.forEach(button => {
+//   button.addEventListener('change', event => {
+//     if (event.checked) {
+//         number = 5
+//         radio.innerHTML = `<div>${i} / ${number} </div>`
+//         radioChoice(5)
+//     } else if (event.checked){
+//         number = 10
+//         console.log(number);
+//         radio.innerHTML = `<div>${i} / ${number} </div>`
+//         radioChoice(10)
+//     }else if (event.checked){
+//         number = 15
+//         radio.innerHTML = `<div>${i} / ${number} </div>`
+//         radioChoice(15)
+//     }else if (event.checked){
+//         number = 20
+//         radio.innerHTML = `<div>${i} / ${number} </div>`
+//         radioChoice(20)
+//     }
+//     // Hier kannst du den Code schreiben, der ausgeführt werden soll, wenn ein Radio Button ausgewählt wird
+//     console.log(event.target.id); // Beispiel: Konsolenausgabe der ID des ausgewählten Radio Buttons
+//   });
+// });

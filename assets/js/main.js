@@ -151,82 +151,10 @@ const radioChoice = (x) => {
             output.innerHTML = "it's a draw"
             // output.innerHTML = ''
         }
-    // }else if(radio10.checked){
-    //     output.textContent = "Let's play"
-    //     number = 10
-    //     if(i == 10 && iPlayer > iCom){
-    //         output.textContent  = "Player wins"
-    //         setTimeout(2000, restartFunction())
 
-
-    //     } else if (i == 10 && iCom > iPlayer){
-    //         restartFunction()
-    //         output.textContent  = "Com wins"
-    //     } else if(i == 10 && iCom == iPlayer){ 
-    //         restartFunction()
-    //         output.textContent = "it's a draw"
-    //     }
-    // }else if(radio15.checked){
-    //     output.textContent = "Let's play"
-    //     number = 15
-    //     if(i == 15 && iPlayer > iCom){
-    //         restartFunction()
-    //         output.textContent  = "Player wins"
-
-    //     } else if (i == 15 && iCom > iPlayer){
-    //         restartFunction()
-    //         output.textContent  = "Com wins"
-    //     }
-    // }else if(radio20.checked){
-    //     output.textContent = "Let's play"
-    //     number = 20
-    //     if(i == 20 && iPlayer > iCom){
-            
-    //         restartFunction()
-    //         output.textContent  = "Player wins"
-
-    //     } else if (i == 20 && iCom > iPlayer){
-    //         restartFunction()
-    //         output.textContent  = "Com wins"
-    //     }
-    //     else if(i == 20 && iCom == iPlayer){ 
-    //         restartFunction()
-    //         output.textContent = "it's a draw"
-    //     }
-    // }
-        
 }
 
 // einfach Zählfunktion
 const counter = () =>{
     i++
 }
-
-
-// // Soll 
-// const radioButtons = document.querySelectorAll('input[type="radio"]');
-
-// radioButtons.forEach(button => {
-//   button.addEventListener('change', event => {
-//     if (event.checked) {
-//         number = 5
-//         radio.innerHTML = `<div>${i} / ${number} </div>`
-//         radioChoice(5)
-//     } else if (event.checked){
-//         number = 10
-//         console.log(number);
-//         radio.innerHTML = `<div>${i} / ${number} </div>`
-//         radioChoice(10)
-//     }else if (event.checked){
-//         number = 15
-//         radio.innerHTML = `<div>${i} / ${number} </div>`
-//         radioChoice(15)
-//     }else if (event.checked){
-//         number = 20
-//         radio.innerHTML = `<div>${i} / ${number} </div>`
-//         radioChoice(20)
-//     }
-//     // Hier kannst du den Code schreiben, der ausgeführt werden soll, wenn ein Radio Button ausgewählt wird
-//     console.log(event.target.id); // Beispiel: Konsolenausgabe der ID des ausgewählten Radio Buttons
-//   });
-// });

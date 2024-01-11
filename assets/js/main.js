@@ -77,7 +77,7 @@ const compTurn = (choice) => {
                 compScore.textContent = iCom
             }
         }
-    } radioChoice()
+    } radioForLoop()
 }
 
 
@@ -115,68 +115,81 @@ restart.addEventListener('click', () =>{
     restartFunction()
 })
 
-const radioChoice = (x, y) => {
-    
-    if (radio5.checked){
-        output.textContent = "Let's play"
+const radioForLoop = () => {
+    if (radio5.checked) {
         number = 5
-        if(i == 5 && iPlayer > iCom){
-            output.textContent  = "Player wins"
-            setTimeout(2000, restartFunction())
-
-        } else if (i == 5 && iCom > iPlayer){
-            output.textContent  = "Com wins"
-            setTimeout(2000, restartFunction())
-        }
-        else if(i == 5 && iCom == iPlayer){ 
-            
-            output.textContent = "it's a draw"
-            setTimeout(2000, restartFunction())
-        }
-    }else if(radio10.checked){
-        output.textContent = "Let's play"
+        radioChoice(5)
+    } else if (radio10.checked){
         number = 10
-        if(i == 10 && iPlayer > iCom){
+        radioChoice(10)
+    }else if (radio15.checked){
+        number = 15
+        radioChoice(15)
+    }else if (radio20.checked){
+        number = 20
+        radioChoice(20)
+    }
+}
+
+const radioChoice = (x) => {
+        output.textContent = "Let's play"
+        if(i == x && iPlayer > iCom){
             output.textContent  = "Player wins"
             setTimeout(2000, restartFunction())
 
-
-        } else if (i == 10 && iCom > iPlayer){
-            restartFunction()
+        } else if (i == x && iCom > iPlayer){
             output.textContent  = "Com wins"
-        } else if(i == 10 && iCom == iPlayer){ 
-            restartFunction()
-            output.textContent = "it's a draw"
+            setTimeout(2000, restartFunction())
         }
-    }else if(radio15.checked){
-        output.textContent = "Let's play"
-        number = 15
-        if(i == 15 && iPlayer > iCom){
-            console.log("OHHHHHHH");
-            restartFunction()
-            output.textContent  = "Player wins"
-
-        } else if (i == 15 && iCom > iPlayer){
-            restartFunction()
-            output.textContent  = "Com wins"
-        }
-    }else if(radio20.checked){
-        output.textContent = "Let's play"
-        number = 20
-        if(i == 20 && iPlayer > iCom){
+        else if(i == x && iCom == iPlayer){ 
             
-            restartFunction()
-            output.textContent  = "Player wins"
-
-        } else if (i == 20 && iCom > iPlayer){
-            restartFunction()
-            output.textContent  = "Com wins"
-        }
-        else if(i == 20 && iCom == iPlayer){ 
-            restartFunction()
             output.textContent = "it's a draw"
+            setTimeout(2000, restartFunction())
         }
-    }
+    // }else if(radio10.checked){
+    //     output.textContent = "Let's play"
+    //     number = 10
+    //     if(i == 10 && iPlayer > iCom){
+    //         output.textContent  = "Player wins"
+    //         setTimeout(2000, restartFunction())
+
+
+    //     } else if (i == 10 && iCom > iPlayer){
+    //         restartFunction()
+    //         output.textContent  = "Com wins"
+    //     } else if(i == 10 && iCom == iPlayer){ 
+    //         restartFunction()
+    //         output.textContent = "it's a draw"
+    //     }
+    // }else if(radio15.checked){
+    //     output.textContent = "Let's play"
+    //     number = 15
+    //     if(i == 15 && iPlayer > iCom){
+    //         console.log("OHHHHHHH");
+    //         restartFunction()
+    //         output.textContent  = "Player wins"
+
+    //     } else if (i == 15 && iCom > iPlayer){
+    //         restartFunction()
+    //         output.textContent  = "Com wins"
+    //     }
+    // }else if(radio20.checked){
+    //     output.textContent = "Let's play"
+    //     number = 20
+    //     if(i == 20 && iPlayer > iCom){
+            
+    //         restartFunction()
+    //         output.textContent  = "Player wins"
+
+    //     } else if (i == 20 && iCom > iPlayer){
+    //         restartFunction()
+    //         output.textContent  = "Com wins"
+    //     }
+    //     else if(i == 20 && iCom == iPlayer){ 
+    //         restartFunction()
+    //         output.textContent = "it's a draw"
+    //     }
+    // }
         
 }
 

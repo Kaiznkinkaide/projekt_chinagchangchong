@@ -40,11 +40,10 @@ const compTurn = (choice) => {
 
     if (choice.id == randomChoice.toLowerCase()) {
         counter()
-        radioForLoop()
         output.textContent = 'Draw';
+        radioForLoop()
     } else {
         counter()
-        radioForLoop()
         if (choice == Rock) {
             if (randomChoice == 'Scissors') {
                 output.textContent = `rock beats ${randomChoice}`;
@@ -77,11 +76,11 @@ const compTurn = (choice) => {
                 iCom ++
                 compScore.textContent = iCom
             }
-        }
+        } radioForLoop()
     } 
 }
 
-
+// ruft bei click auf das jeweilige symbol die funktion mit dem parameter auf
 rock.addEventListener('click', function (){
     compTurn(Rock)
 })
@@ -102,10 +101,6 @@ const restartFunction = () =>{
     // outputRounds.style.display = 'initial'
     window.location.reload()
 }
-
-document.querySelector('input[type=radio]').addEventListener('change', function() {
-    console.log('Radio button state : ', this.checked);
-});
 
 restart.addEventListener('click', () =>{
     restartFunction()
@@ -134,27 +129,27 @@ const radioForLoop = () => {
     }
 }
 
-let result = document.querySelector('#result')
+const inputField = document.querySelector('.inputField')
 // Zählt den Score und vergleicht wer am Ende gewinnt
 const radioChoice = (x) => {
-    console.log('test');
+    console.log('icom', iCom);
+    console.log('play', iPlayer);
         // output.textContent = "Let's play"
         if(i == x && iPlayer > iCom){
-            console.log('testplayerwin');
-            result.textContent = "Player wins"
-            setTimeout(500, output.textContent = "test")
-            setTimeout(2000, restartFunction)
+            inputField.innerHTML = ''
+            output.innerHTML = "Player wins"
+            // output.innerHTML = ''
 
         } else if (i == x && iCom > iPlayer){
-            console.log('comwins');
-            setTimeout(500, output.textContent = "test")
-            setTimeout(2000, restartFunction)
+            inputField.innerHTML = ''
+            output.innerHTML = "Com wins"
+            // output.innerHTML = ''
+
         }
         else if(i == x && iCom == iPlayer){ 
-            console.log('draw');
-            result.textContent = "it's a draw"
-            setTimeout(500, output.textContent = "test")
-            setTimeout(2000, restartFunction)
+            inputField.innerHTML = ''
+            output.innerHTML = "it's a draw"
+            // output.innerHTML = ''
         }
     // }else if(radio10.checked){
     //     output.textContent = "Let's play"

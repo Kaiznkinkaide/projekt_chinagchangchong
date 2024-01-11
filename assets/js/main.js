@@ -18,6 +18,8 @@ let restart = document.getElementById('restart')
 
 //tools
 let i = 0
+let iPlayer = 0
+let iCom = 0
 
 
 const compTurn = (choice) => {

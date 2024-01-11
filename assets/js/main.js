@@ -23,6 +23,8 @@ let iCom = 0
 let number = 5
 
 
+
+
 const compTurn = (choice) => {
     let randomChoice = Math.round(Math.random() * 2);
     let randomPic = Math.round(Math.random() * 2);
@@ -113,30 +115,41 @@ restart.addEventListener('click', () =>{
     restartFunction()
 })
 
-const radioChoice = () => {
+const radioChoice = (x, y) => {
+    
     if (radio5.checked){
+        output.textContent = "Let's play"
         number = 5
         if(i == 5 && iPlayer > iCom){
-            console.log("OHHHHHHH");
-            restartFunction()
             output.textContent  = "Player wins"
+            setTimeout(2000, restartFunction())
 
         } else if (i == 5 && iCom > iPlayer){
             output.textContent  = "Com wins"
+            setTimeout(2000, restartFunction())
+        }
+        else if(i == 5 && iCom == iPlayer){ 
+            
+            output.textContent = "it's a draw"
+            setTimeout(2000, restartFunction())
         }
     }else if(radio10.checked){
+        output.textContent = "Let's play"
         number = 10
         if(i == 10 && iPlayer > iCom){
-            console.log("OHHHHHHH");
-            restartFunction()
             output.textContent  = "Player wins"
+            setTimeout(2000, restartFunction())
+
 
         } else if (i == 10 && iCom > iPlayer){
+            restartFunction()
             output.textContent  = "Com wins"
-        } else{
+        } else if(i == 10 && iCom == iPlayer){ 
+            restartFunction()
             output.textContent = "it's a draw"
         }
     }else if(radio15.checked){
+        output.textContent = "Let's play"
         number = 15
         if(i == 15 && iPlayer > iCom){
             console.log("OHHHHHHH");
@@ -144,19 +157,23 @@ const radioChoice = () => {
             output.textContent  = "Player wins"
 
         } else if (i == 15 && iCom > iPlayer){
+            restartFunction()
             output.textContent  = "Com wins"
         }
     }else if(radio20.checked){
+        output.textContent = "Let's play"
         number = 20
         if(i == 20 && iPlayer > iCom){
-            console.log("OHHHHHHH");
+            
             restartFunction()
             output.textContent  = "Player wins"
 
         } else if (i == 20 && iCom > iPlayer){
+            restartFunction()
             output.textContent  = "Com wins"
         }
-        else{
+        else if(i == 20 && iCom == iPlayer){ 
+            restartFunction()
             output.textContent = "it's a draw"
         }
     }

@@ -37,11 +37,11 @@ const compTurn = (choice) => {
     let randomChoice = Math.round(Math.random() * 2);
     
     if (randomChoice == 0) {
-        randomChoice = 'Rock';
+        randomChoice = 'rock';
     } else if (randomChoice == 1) {
-        randomChoice = 'Paper';
+        randomChoice = 'paper';
     } else {
-        randomChoice = 'Scissors';
+        randomChoice = 'scissors';
     }
     
 

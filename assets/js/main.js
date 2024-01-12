@@ -11,9 +11,9 @@ let youScore = document.getElementById('youScore')
 let compScore = document.getElementById('compScore')
 let output = document.querySelector('#output')
 // input
-let Rock = document.getElementById('rock')
-let Paper = document.getElementById('paper')
-let Scissors = document.getElementById('scissors')
+let rock = document.getElementById('rock')
+let paper = document.getElementById('paper')
+let scissors = document.getElementById('scissors')
 // restart
 let restart = document.getElementById('restart')
 
@@ -45,7 +45,7 @@ const compTurn = (choice) => {
     }
     
 
-    if (choice.id == randomChoice.toLowerCase()) {
+    if (choice.id == randomChoice) {
         counter()
         output.textContent = 'Draw';
         winner = "draw"
@@ -53,15 +53,15 @@ const compTurn = (choice) => {
         radioForLoop()
     } else {
         counter()
-        if (choice == Rock) {
-            if (randomChoice == 'Scissors') {
+        if (choice == rock) {
+            if (randomChoice == 'scissors') {
                 output.textContent = `rock beats ${randomChoice}`;
                 iPlayer ++
                 youScore.textContent = iPlayer
                 winner = choice.id
                 console.log("player",winner);
                 fight(choice, randomChoice, winner)
-            } else if (randomChoice == 'Paper') {
+            } else if (randomChoice == 'paper') {
                 output.textContent = `${randomChoice} beats rock`;
                 iCom ++
                 compScore.textContent = iCom
@@ -69,8 +69,8 @@ const compTurn = (choice) => {
                 console.log("icom",winner);
                 fight(choice, randomChoice, winner)
             }
-        } if (choice == Paper) {
-            if (randomChoice == 'Rock') {
+        } if (choice == paper) {
+            if (randomChoice == 'rock') {
                 output.textContent = `paper beats ${randomChoice}`;
                 iPlayer ++
                 youScore.textContent = iPlayer
@@ -78,7 +78,7 @@ const compTurn = (choice) => {
                 console.log("player",winner);
                 fight(choice, randomChoice, winner)
                 
-            } else if (randomChoice == 'Scissors') {
+            } else if (randomChoice == 'scissors') {
                 output.textContent = `${randomChoice} beats paper`;
                 iCom ++
                 compScore.textContent = iCom
@@ -86,15 +86,15 @@ const compTurn = (choice) => {
                 console.log("icom",winner);
                 fight(choice, randomChoice, winner)
             }
-        } if (choice == Scissors) {
-            if (randomChoice == 'Paper') {
+        } if (choice == scissors) {
+            if (randomChoice == 'paper') {
                 output.textContent = `scissors beats ${randomChoice}`;
                 iPlayer ++
                 youScore.textContent = iPlayer
                 winner = choice.id
                 console.log("player",winner);
                 fight(choice, randomChoice, winner)
-            } else if (randomChoice == 'Rock') {
+            } else if (randomChoice == 'rock') {
                 output.textContent = `${randomChoice} beats scissors`;
                 iCom ++
                 compScore.textContent = iCom
@@ -110,13 +110,13 @@ const compTurn = (choice) => {
 
 // ruft bei click auf das jeweilige symbol die funktion mit dem parameter auf
 rock.addEventListener('click', function (){
-    compTurn(Rock)
+    compTurn(rock)
 })
 paper.addEventListener('click', function (){
-    compTurn(Paper)
+    compTurn(paper)
 })
 scissors.addEventListener('click', function (){
-    compTurn(Scissors)
+    compTurn(scissors)
 })
 
 const restartFunction = () =>{

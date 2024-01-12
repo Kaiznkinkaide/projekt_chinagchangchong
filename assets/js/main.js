@@ -58,14 +58,14 @@ const compTurn = (choice) => {
                 iPlayer ++
                 youScore.textContent = iPlayer
                 winner = choice.id
-                console.log(winner);
+                console.log("player",winner);
                 fight(choice, randomChoice, winner)
             } else if (randomChoice == 'Paper') {
                 output.textContent = `${randomChoice} beats rock`;
                 iCom ++
                 compScore.textContent = iCom
                 winner = randomChoice
-                console.log(winner);
+                console.log("icom",winner);
                 fight(choice, randomChoice, winner)
             }
         } if (choice == Paper) {
@@ -74,7 +74,7 @@ const compTurn = (choice) => {
                 iPlayer ++
                 youScore.textContent = iPlayer
                 winner = choice.id
-                console.log(winner);
+                console.log("player",winner);
                 fight(choice, randomChoice, winner)
                 
             } else if (randomChoice == 'Scissors') {
@@ -82,7 +82,7 @@ const compTurn = (choice) => {
                 iCom ++
                 compScore.textContent = iCom
                 winner = randomChoice
-                console.log(winner);
+                console.log("icom",winner);
                 fight(choice, randomChoice, winner)
             }
         } if (choice == Scissors) {
@@ -91,17 +91,18 @@ const compTurn = (choice) => {
                 iPlayer ++
                 youScore.textContent = iPlayer
                 winner = choice.id
+                console.log("player",winner);
                 fight(choice, randomChoice, winner)
             } else if (randomChoice == 'Rock') {
                 output.textContent = `${randomChoice} beats scissors`;
                 iCom ++
                 compScore.textContent = iCom
                 winner = randomChoice
-                console.log(winner);
+                console.log("icom",winner);
                 fight(choice, randomChoice, winner)
             }
         } 
-        radioForLoop() 
+        radioForLoop()
         
     }
 }
@@ -141,7 +142,6 @@ const radioForLoop = () => {
         radioChoice(5)
     } else if (radio10.checked){
         number = 10
-        console.log(number);
         radio.innerHTML = `<div>${i} / ${number} </div>`
         radioChoice(10)
     }else if (radio15.checked){
@@ -159,8 +159,6 @@ const radioForLoop = () => {
 const inputField = document.querySelector('.inputField')
 // Zählt den Score und vergleicht wer am Ende gewinnt
 const radioChoice = (x) => {
-    console.log('icom', iCom);
-    console.log('play', iPlayer);
         // output.textContent = "Let's play"
         if(i == x && iPlayer > iCom){
             inputField.innerHTML = ''
@@ -197,7 +195,6 @@ const fight = (a,b, winner) => {
     fightOutput.appendChild(imgA)
     fightOutput.appendChild(imgB)
     setTimeout( function() {
-        console.log("check");
         fightOutput.innerHTML = ""
         imgA.setAttribute('src', `./assets/img/explosion.gif`)
         imgA.style.scale = "5"
@@ -206,6 +203,10 @@ const fight = (a,b, winner) => {
     setTimeout(function() {
         fightOutput.innerHTML = ""
         imgA.setAttribute('src', `./assets/img/${winner}.gif`)
+        fightOutput.appendChild(imgA)
     }, 3000)
+    setTimeout(function() {
+        fightOutput.innerHTML = ""
+    }, 5000)
 }
 

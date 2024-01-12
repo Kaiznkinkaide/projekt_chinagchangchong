@@ -129,6 +129,7 @@ const restartFunction = () =>{
     output.textContent = "Let's play"
     // outputRounds.style.display = 'initial'
     window.location.reload()
+    readySound()
 }
 
 restart.addEventListener('click', () =>{
@@ -183,6 +184,13 @@ const radioChoice = (x) => {
 const counter = () =>{
     i++
 }
+
+const getReady = () => {
+    const readySound = new Audio('./assets/sound/Get Ready For The Next Battle! (Tekken7) - QuickSounds.com.mp3')
+    readySound.play()
+    readySound.volume = 0.2
+}
+getReady()
 
 const fight = (a,b, winner) => {
     a = a.id

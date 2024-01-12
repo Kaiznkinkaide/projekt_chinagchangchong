@@ -48,9 +48,10 @@ const compTurn = (choice) => {
     if (choice.id == randomChoice.toLowerCase()) {
         counter()
         output.textContent = 'Draw';
+        winner = "draw"
+        fight(choice, randomChoice, winner)
         radioForLoop()
     } else {
-        
         counter()
         if (choice == Rock) {
             if (randomChoice == 'Scissors') {
@@ -205,8 +206,15 @@ const fight = (a,b, winner) => {
         imgA.setAttribute('src', `./assets/img/${winner}.gif`)
         fightOutput.appendChild(imgA)
     }, 3000)
-    setTimeout(function() {
-        fightOutput.innerHTML = ""
-    }, 5000)
+    
+    if( winner == "draw"){
+        setTimeout(function() {
+            fightOutput.innerHTML = ""
+        }, 11000)
+    } else{
+        setTimeout(function() {
+            fightOutput.innerHTML = ""
+        }, 5000)
+    }
 }
 

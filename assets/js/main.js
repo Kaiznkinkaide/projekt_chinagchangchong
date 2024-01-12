@@ -27,7 +27,9 @@ let winner;
 // fight
 let youChoice = document.getElementById('youChoice')
 let compChoice = document.getElementById('compChoice')
+let fightOutput = document.getElementById('fight')
 let explosionAudio = new Audio("./assets/sound/Freesound - Huge Explosion.flac by CGEffex.mp3")
+let winnerOutput = document.querySelector('#winner');
 
 
 
@@ -127,7 +129,6 @@ const restartFunction = () =>{
     compScore.textContent = iCom
     i = 0
     output.textContent = "Let's play"
-    // outputRounds.style.display = 'initial'
     window.location.reload()
     readySound()
 }
@@ -162,39 +163,26 @@ const radioForLoop = () => {
 const inputField = document.querySelector('.inputField')
 // Zählt den Score und vergleicht wer am Ende gewinnt
 const radioChoice = (x) => {
-        // output.textContent = "Let's play"
         if(i == x && iPlayer > iCom){
             inputField.innerHTML = ''
-            output.innerHTML = "Player wins"
-            // output.innerHTML = ''
+            fightOutput.innerHTML = ""
+            const imgB = document.createElement('img')
+        imgB.setAttribute('src', `./assets/img/playerWin.gif`)
+        winnerOutput.appendChild(imgB)
         } else if (i == x && iCom > iPlayer){
             inputField.innerHTML = ''
-            output.innerHTML = "Com wins"
-            // output.innerHTML = ''
-        }
-        else if(i == x && iCom == iPlayer){ 
+            fightOutput.innerHTML = ""
+            const imgB = document.createElement('img')
+        imgB.setAttribute('src', `./assets/img/compWin.gif`)
+        winnerOutput.appendChild(imgB)
+        } else if(i == x && iCom == iPlayer){ 
             inputField.innerHTML = ''
             output.innerHTML = "it's a draw"
-            // output.innerHTML = ''
         }
-
 }
-
-// einfach Zählfunktion
-const counter = () =>{
-    i++
-}
-
-const getReady = () => {
-    const readySound = new Audio('./assets/sound/Get Ready For The Next Battle! (Tekken7) - QuickSounds.com.mp3')
-    readySound.play()
-    readySound.volume = 0.2
-}
-getReady()
 
 const fight = (a,b, winner) => {
     a = a.id
-    let fightOutput = document.getElementById('fight')
     fightOutput.innerHTML = ""
     let imgA = document.createElement('img')
     let imgB = document.createElement('img')
@@ -227,3 +215,14 @@ const fight = (a,b, winner) => {
     }
 }
 
+const getReady = () => {
+    const readySound = new Audio('./assets/sound/Get Ready For The Next Battle! (Tekken7) - QuickSounds.com.mp3')
+    readySound.play()
+    readySound.volume = 0.2
+}
+getReady()
+
+// einfach Zählfunktion
+const counter = () =>{
+    i++
+}

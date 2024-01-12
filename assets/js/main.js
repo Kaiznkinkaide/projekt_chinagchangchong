@@ -30,6 +30,7 @@ let number;
 
 
 const compTurn = (choice) => {
+    
     let randomChoice = Math.round(Math.random() * 2);
     
     if (randomChoice == 0) {
@@ -79,8 +80,10 @@ const compTurn = (choice) => {
                 iCom ++
                 compScore.textContent = iCom
             }
-        } radioForLoop()
-    } 
+        } 
+        radioForLoop() 
+        fight(choice, randomChoice)
+    }
 }
 
 // ruft bei click auf das jeweilige symbol die funktion mit dem parameter auf
@@ -132,6 +135,7 @@ const radioForLoop = () => {
     }
 }
 
+
 const inputField = document.querySelector('.inputField')
 // Zählt den Score und vergleicht wer am Ende gewinnt
 const radioChoice = (x) => {
@@ -163,10 +167,13 @@ const counter = () =>{
 }
 
 
-const fight = () => {
-    let fightOutput = documnet.getElementById('fight')
-    let img = document.createElement('img')
-    img.setAttribute('src', "./assets/img/rock.gif")
-    fightOutput.appendChild(img)
+const fight = (a,b) => {
+    a = a.id
+    let fightOutput = document.getElementById('fight')
+    let imgA = document.createElement('img')
+    let imgB = document.createElement('img')
+    imgA.setAttribute('src', `./assets/img/${a}.gif`)
+    imgB.setAttribute('src', `./assets/img/${b}.gif`)
+    fightOutput.appendChild(imgA)
+    fightOutput.appendChild(imgB)
 }
-fight()

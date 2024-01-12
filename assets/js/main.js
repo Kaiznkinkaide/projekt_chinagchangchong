@@ -206,15 +206,14 @@ const fight = (a,b, winner) => {
         imgA.setAttribute('src', `./assets/img/${winner}.gif`)
         fightOutput.appendChild(imgA)
     }, 3000)
-    
     if( winner == "draw"){
         setTimeout(function() {
             fightOutput.innerHTML = ""
         }, 11000)
     } else{
         setTimeout(function() {
-            fightOutput.innerHTML = ""
-        }, 5000)
+        fightOutput.innerHTML = ""
+    }, 5000)
     }
 }
 

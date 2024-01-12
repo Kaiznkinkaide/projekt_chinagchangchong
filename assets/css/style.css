@@ -5,9 +5,9 @@
 }
 
 html {
-    background: rgb(2,0,36);
-background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)no-repeat;
-min-height: 100dvh;
+    background: rgb(2, 0, 36);
+    background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%)no-repeat;
+    min-height: 100dvh;
     color: white;
     display: flex;
     justify-content: center;
@@ -45,4 +45,16 @@ min-height: 100dvh;
 
 #outputRounds {
     display: none;
+}
+
+#fight {
+    border: 1px solid red;
+    position: relative;
+    width: 10rem;
+    height: 10rem;
+}
+
+img {
+    width: 30%;
+    height: 60%;
 }

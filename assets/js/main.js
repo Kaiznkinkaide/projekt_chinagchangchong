@@ -23,6 +23,9 @@ let iPlayer = 0
 let iCom = 0
 let number;
 
+// fight
+
+
 
 
 
@@ -158,3 +161,12 @@ const radioChoice = (x) => {
 const counter = () =>{
     i++
 }
+
+
+const fight = () => {
+    let fightOutput = documnet.getElementById('fight')
+    let img = document.createElement('img')
+    img.setAttribute('src', "./assets/img/rock.gif")
+    fightOutput.appendChild(img)
+}
+fight()

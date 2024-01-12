@@ -19,6 +19,8 @@ html {
 .outputFrame {
     padding: 3vh;
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 1.5rem;
 }
 
@@ -48,7 +50,9 @@ html {
 }
 
 #fight {
-    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
 
 }
@@ -56,4 +60,15 @@ html {
 img {
     width: 30%;
     height: 60%;
+}
+
+#rock,
+#paper,
+#scissors {
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 1000;
+    background: none;
+    border-radius: 50%;
+    padding: .5rem;
 }

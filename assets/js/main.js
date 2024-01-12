@@ -22,8 +22,11 @@ let i = 0
 let iPlayer = 0
 let iCom = 0
 let number;
+let winner;
 
 // fight
+let youChoice = document.getElementById('youChoice')
+let compChoice = document.getElementById('compChoice')
 
 
 
@@ -47,42 +50,51 @@ const compTurn = (choice) => {
         output.textContent = 'Draw';
         radioForLoop()
     } else {
+        fight(choice, randomChoice)
         counter()
         if (choice == Rock) {
             if (randomChoice == 'Scissors') {
                 output.textContent = `rock beats ${randomChoice}`;
                 iPlayer ++
                 youScore.textContent = iPlayer
+                winner = choice
+                console.log(winner);
+                
                 
             } else if (randomChoice == 'Paper') {
                 output.textContent = `${randomChoice} beats rock`;
                 iCom ++
                 compScore.textContent = iCom
+                return randomChoice
             }
         } if (choice == Paper) {
             if (randomChoice == 'Rock') {
                 output.textContent = `paper beats ${randomChoice}`;
                 iPlayer ++
                 youScore.textContent = iPlayer
+                return choice
                 
             } else if (randomChoice == 'Scissors') {
                 output.textContent = `${randomChoice} beats paper`;
                 iCom ++
                 compScore.textContent = iCom
+                return randomChoice
             }
         } if (choice == Scissors) {
             if (randomChoice == 'Paper') {
                 output.textContent = `scissors beats ${randomChoice}`;
                 iPlayer ++
                 youScore.textContent = iPlayer
+                return choice
             } else if (randomChoice == 'Rock') {
                 output.textContent = `${randomChoice} beats scissors`;
                 iCom ++
                 compScore.textContent = iCom
+                return randomChoice
             }
         } 
         radioForLoop() 
-        fight(choice, randomChoice)
+        
     }
 }
 
@@ -166,14 +178,22 @@ const counter = () =>{
     i++
 }
 
-
 const fight = (a,b) => {
     a = a.id
     let fightOutput = document.getElementById('fight')
+    fightOutput.innerHTML = ""
     let imgA = document.createElement('img')
     let imgB = document.createElement('img')
     imgA.setAttribute('src', `./assets/img/${a}.gif`)
     imgB.setAttribute('src', `./assets/img/${b}.gif`)
     fightOutput.appendChild(imgA)
     fightOutput.appendChild(imgB)
+    setTimeout( function() {
+        console.log("check");
+        fightOutput.innerHTML = ""
+        imgA.setAttribute('src', `./assets/img/explosion.gif`)
+        imgA.style.scale = "5"
+
+        fightOutput.appendChild(imgA)
+    },2000)
 }

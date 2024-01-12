@@ -50,47 +50,55 @@ const compTurn = (choice) => {
         output.textContent = 'Draw';
         radioForLoop()
     } else {
-        fight(choice, randomChoice)
+        
         counter()
         if (choice == Rock) {
             if (randomChoice == 'Scissors') {
                 output.textContent = `rock beats ${randomChoice}`;
                 iPlayer ++
                 youScore.textContent = iPlayer
-                winner = choice
+                winner = choice.id
                 console.log(winner);
-                
-                
+                fight(choice, randomChoice, winner)
             } else if (randomChoice == 'Paper') {
                 output.textContent = `${randomChoice} beats rock`;
                 iCom ++
                 compScore.textContent = iCom
-                return randomChoice
+                winner = randomChoice
+                console.log(winner);
+                fight(choice, randomChoice, winner)
             }
         } if (choice == Paper) {
             if (randomChoice == 'Rock') {
                 output.textContent = `paper beats ${randomChoice}`;
                 iPlayer ++
                 youScore.textContent = iPlayer
-                return choice
+                winner = choice.id
+                console.log(winner);
+                fight(choice, randomChoice, winner)
                 
             } else if (randomChoice == 'Scissors') {
                 output.textContent = `${randomChoice} beats paper`;
                 iCom ++
                 compScore.textContent = iCom
-                return randomChoice
+                winner = randomChoice
+                console.log(winner);
+                fight(choice, randomChoice, winner)
             }
         } if (choice == Scissors) {
             if (randomChoice == 'Paper') {
                 output.textContent = `scissors beats ${randomChoice}`;
                 iPlayer ++
                 youScore.textContent = iPlayer
-                return choice
+                winner = choice.id
+                fight(choice, randomChoice, winner)
             } else if (randomChoice == 'Rock') {
                 output.textContent = `${randomChoice} beats scissors`;
                 iCom ++
                 compScore.textContent = iCom
-                return randomChoice
+                winner = randomChoice
+                console.log(winner);
+                fight(choice, randomChoice, winner)
             }
         } 
         radioForLoop() 
@@ -178,7 +186,7 @@ const counter = () =>{
     i++
 }
 
-const fight = (a,b) => {
+const fight = (a,b, winner) => {
     a = a.id
     let fightOutput = document.getElementById('fight')
     fightOutput.innerHTML = ""
@@ -193,7 +201,11 @@ const fight = (a,b) => {
         fightOutput.innerHTML = ""
         imgA.setAttribute('src', `./assets/img/explosion.gif`)
         imgA.style.scale = "5"
-
         fightOutput.appendChild(imgA)
     },2000)
+    setTimeout(function() {
+        fightOutput.innerHTML = ""
+        imgA.setAttribute('src', `./assets/img/${winner}.gif`)
+    }, 3000)
 }
+

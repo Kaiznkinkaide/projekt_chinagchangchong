@@ -27,6 +27,7 @@ let winner;
 // fight
 let youChoice = document.getElementById('youChoice')
 let compChoice = document.getElementById('compChoice')
+let explosionAudio = new Audio("./assets/sound/Freesound - Huge Explosion.flac by CGEffex.mp3")
 
 
 
@@ -165,12 +166,10 @@ const radioChoice = (x) => {
             inputField.innerHTML = ''
             output.innerHTML = "Player wins"
             // output.innerHTML = ''
-
         } else if (i == x && iCom > iPlayer){
             inputField.innerHTML = ''
             output.innerHTML = "Com wins"
             // output.innerHTML = ''
-
         }
         else if(i == x && iCom == iPlayer){ 
             inputField.innerHTML = ''
@@ -197,6 +196,9 @@ const fight = (a,b, winner) => {
     fightOutput.appendChild(imgB)
     setTimeout( function() {
         fightOutput.innerHTML = ""
+        explosionAudio.play()
+        explosionAudio.volume = 0.2
+        explosionAudio.playbackRate = 1.5
         imgA.setAttribute('src', `./assets/img/explosion.gif`)
         imgA.style.scale = "5"
         fightOutput.appendChild(imgA)
